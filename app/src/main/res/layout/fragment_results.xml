@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".results.ResultsFragment">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.android.githubsearcher.results.ResultsViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <EditText
+            android:id="@+id/results_editText"
+            style="@style/EditTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="33dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:background="@drawable/search_edit_text_background"
+            android:ems="10"
+            android:fontFamily="@font/opensans_regular"
+            android:gravity="start|center_vertical"
+            android:hint="@string/search"
+            android:inputType="textAutoCorrect|text"
+            android:maxLength="42"
+            android:paddingStart="40dp"
+            android:paddingEnd="59dp"
+            android:textAlignment="viewStart"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/search_activity_go_button"
+            android:layout_width="51dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="4dp"
+            android:background="@drawable/search_go_button_background"
+            android:contentDescription="@null"
+            android:padding="5dp"
+            android:scaleType="centerInside"
+            app:layout_constraintBottom_toBottomOf="@+id/results_editText"
+            app:layout_constraintEnd_toEndOf="@+id/results_editText"
+            app:layout_constraintTop_toTopOf="@+id/results_editText"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/go_button_svg" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="12dp"
+            android:contentDescription="@null"
+            app:layout_constraintBottom_toBottomOf="@+id/results_editText"
+            app:layout_constraintStart_toStartOf="@+id/results_editText"
+            app:layout_constraintTop_toTopOf="@+id/results_editText"
+            app:srcCompat="@drawable/search_magnifier_svg" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/results_recycler_view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="24dp"
+            android:clipToPadding="false"
+            android:paddingStart="24dp"
+            android:paddingTop="?attr/actionBarSize"
+            android:paddingEnd="24dp"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/results_editText"
+            app:setRecyclerData="@{viewModel.searchResultList}"
+            app:spanCount="@integer/grid_layout_columns" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

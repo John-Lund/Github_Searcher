@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Github Searcher</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="search">Search...</string>
+    <string name="github_search">GitHub Search</string>
+    <string name="readme">ReadMe:</string>
+    <string name="by">By: </string>
+    <string name="forks">Forks:</string>
+    <string name="issues">Issues:</string>
+    <string name="watchers">Watchers:</string>
+
+</resources>
